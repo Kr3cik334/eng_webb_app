@@ -10,7 +10,7 @@ const UserLinks = () => {
       {status === "authenticated" ? (
         <div>
           <Link href="/orders">Zamówienia</Link>
-          <span className="ml-4 cursor-pointer" onClick={() => signOut()}>Logout</span>
+          <span className="ml-4 cursor-pointer" onClick={() => signOut()}>Wyloguj</span>
         </div>
       ) : (
         <Link href="/login">Zaloguj</Link>

@@ -4,7 +4,7 @@ import 'tailwindcss/tailwind.css'; // Import the Tailwind CSS file
 const ContactPage: React.FC = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 ">
-      <div className="contact-info bg-white p-10 rounded-lg">
+      <div className="contact-info bg-[#fff4e6] p-10 rounded-lg">
         <div className=" justify-center items-center md:items-start">
           <h1 className="text-4xl font-bold mb-5 text-center md:text-center">Kontakt</h1>
           <div className="text-center">

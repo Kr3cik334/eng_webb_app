@@ -13,7 +13,6 @@ export type ProductType = {
   desc?: string;
   img?: string;
   price: number;
-  options?: { title: string; additionalPrice: number }[];
 };
 
 export type OrderType = {
@@ -31,7 +30,6 @@ export type CartItemType = {
   title: string;
   img?: string;
   price: number;
-  optionTitle?: string;
   quantity: number;
 };
 

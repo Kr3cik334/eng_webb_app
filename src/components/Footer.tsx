@@ -1,15 +1,50 @@
 import React from "react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="h-12 md:h-24 p-4 lg:px-20 xl:px-40 text-red-500 flex items-center justify-between">
-      <a href="/" className="font-bold text-xl" target="_blank" rel="noopener noreferrer">PizzaArt</a>
+    <div className="h-16 md:h-24 p-4 lg:px-20 xl:px-40 flex items-center justify-between bg-white">
+      <a className="logo-link" style={{ marginLeft: "10px" }}>
+        <Image
+          src="/logo.png"
+          alt="PizzaArt Logo"
+          className="logo-image"
+          layout="fixed"
+          width={100}
+          height={100}
+        />
+      </a>
       <div className="flex items-center">
-        <a href="https://www.facebook.com/" className="logo-link" target="_blank" rel="noopener noreferrer">
-          <img src="/facebook.png" alt="Facebook Logo" className="logo-image" style={{ width: "50px", height: "50px" }} />
+        <a
+          href="https://www.facebook.com/"
+          className="logo-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="/facebook.png"
+            alt="Facebook Logo"
+            className="logo-image"
+            layout="fixed"
+            width={50}
+            height={50}
+          />
         </a>
-        <a href="https://www.instagram.com/" className="logo-link" target="_blank" rel="noopener noreferrer" style={{ marginLeft: "20px" }}>
-          <img src="/instagram.png" alt="Instagram Logo" className="logo-image" style={{ width: "50px", height: "50px" }} />
+        <a
+          href="https://www.instagram.com/"
+          className="logo-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ marginLeft: "20px" }}
+        >
+          <Image
+            src="/instagram1.png"
+            alt="Instagram Logo"
+            className="logo-image"
+            layout="fixed"
+            width={50}
+            height={50}
+          />
         </a>
       </div>
     </div>

@@ -57,10 +57,10 @@ const OrdersPage = () => {
       <table className="w-full border-separate border-spacing-3">
         <thead>
           <tr className="text-left">
-            <th className="hidden md:block">Order ID</th>
-            <th>Date</th>
-            <th>Price</th>
-            <th className="hidden md:block">Products</th>
+            <th className="hidden md:block">ID Zamówienia</th>
+            <th>Data</th>
+            <th>Cena</th>
+            <th className="hidden md:block">Produkt</th>
             <th>Status</th>
           </tr>
         </thead>

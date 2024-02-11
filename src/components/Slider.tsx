@@ -1,22 +1,22 @@
 "use client";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const data = [
   {
     id: 1,
-    title: "always fresh & always crispy & always hot",
-    image: "/slide1.png",
+    title: 'Always fresh & always crispy & always hot',
+    image: '/slide1.png',
   },
   {
     id: 2,
-    title: "we deliver your order wherever you are in NY",
-    image: "/slide2.png",
+    title: 'We deliver your order wherever you are in NY',
+    image: '/slide2.png',
   },
   {
     id: 3,
-    title: "the best pizza to share with your family",
-    image: "/slide3.jpg",
+    title: 'The best pizza to share with your family',
+    image: '/slide3.jpg',
   },
 ];
 
@@ -31,20 +31,26 @@ const Slider = () => {
   }, []);
 
   return (
-    <div className="flex flex-col h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] lg:flex-row bg-fuchsia-50">
-      {/* TEXT CONTAINER */}
-      <div className="flex-1 flex items-center justify-center flex-col gap-8 text-red-500 font-bold">
-        <h1 className="text-5xl text-center uppercase p-4 md:p-10 md:text-6xl xl:text-7xl">
+    <div className="flex flex-col h-screen md:h-[calc(100vh-9rem)] lg:flex-row">
+      <div className="flex-1 flex items-center justify-center flex-col gap-8 font-bold text-center text-[#121c18] bg-[#fff4e6]">
+        <h1 className="text-5xl md:text-6xl xl:text-7xl">
           {data[currentSlide].title}
         </h1>
-        <button className="bg-red-500 text-white py-4 px-8">Zamów teraz</button>
+        <a
+          href="/menu"
+          className="bg-[#121c18] py-4 px-8 rounded-md text-white"
+          //#121c18
+        >
+          Zamów teraz
+        </a>
       </div>
-      {/* IMAGE CONTAINER */}
       <div className="w-full flex-1 relative">
         {data.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${currentSlide === index ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              currentSlide === index ? 'opacity-100' : 'opacity-0'
+            }`}
           >
             <Image
               src={slide.image}
@@ -60,3 +66,5 @@ const Slider = () => {
 };
 
 export default Slider;
+
+// const featuredProducts:ProductType[] = await getData()
