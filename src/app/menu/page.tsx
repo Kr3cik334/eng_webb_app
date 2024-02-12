@@ -29,8 +29,8 @@ const MenuPage = async () => {
           <div className="flex flex-col items-center">
             <h1>
               <Image
-                width={100}
-                height={100}
+                width={200}
+                height={200}
                 src={category.img as string}
                 alt="cat_img"
               />
