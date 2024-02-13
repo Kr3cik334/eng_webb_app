@@ -6,7 +6,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 
 const CartIcon = () => {
-  const { data: session} = useSession();
+  const { data: session, status } = useSession();
 
   const { totalItems } = useCartStore();
 
@@ -30,9 +30,9 @@ const CartIcon = () => {
           />
         </div>
         {session?.user.isAdmin ? (
-          <button className="p-1 bg-[#121c18] text-white rounded-md">Dodaj produkt</button>
+          <button className="p-1 bg-red-500 text-white rounded-md">Add product</button>
         ) : (
-          <span>Koszyk ({totalItems})</span>
+          <span>Cart ({totalItems})</span>
         )}
       </div>
     </Link>
