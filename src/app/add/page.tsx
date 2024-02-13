@@ -52,10 +52,9 @@ const AddPage = () => {
     const data = new FormData();
     data.append("file", file!);
     data.append("upload_preset", "engineer");
-
-    const res = await fetch("https://api.cloudinary.com/v1_1/pizzaart/image", {
+    data.append("api_key", "559915551345217");
+    const res = await fetch("https://api.cloudinary.com/v1_1/pizzaart/image/upload", {
       method: "POST",
-      headers: { "Content-Type": "multipart/form-data" },
       body: data,
     });
 
