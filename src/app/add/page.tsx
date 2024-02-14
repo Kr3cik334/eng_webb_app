@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 type Inputs = {
   title: string;
@@ -33,6 +34,7 @@ const AddPage = () => {
 
   const [options, setOptions] = useState<Option[]>([]);
   const [file, setFile] = useState<File>();
+  const [fileName, setFileName] = useState<string>("");
 
   const router = useRouter();
 
@@ -73,6 +75,7 @@ const AddPage = () => {
     const target = e.target as HTMLInputElement;
     const item = (target.files as FileList)[0];
     setFile(item);
+    setFileName(item.name);
   };
 
   const upload = async () => {
@@ -115,17 +118,38 @@ const AddPage = () => {
   };
 
   return (
-    <div className="p-4 lg:px-20 xl:px-40 h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] flex items-center justify-center text-red-500">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.5 }}
+      className="p-4 lg:px-20 xl:px-40 h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] flex items-center justify-center text-[#121c18]"
+    >
+      <motion.form
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.5 }}
+        transition={{ duration: 0.5 }}
+        onSubmit={handleSubmit}
+        className="flex flex-wrap gap-6"
+      >
+    <div className="p-4 lg:px-20 xl:px-40 h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] flex items-center justify-center text-[#121c18]">
       <form onSubmit={handleSubmit} className="flex flex-wrap gap-6">
-        <h1 className="text-4xl mb-2 text-gray-300 font-bold">
-          Dodaj nowy produkt
-        </h1>
+        <div
+          className="d-flex align-items-center justify-content-center"
+          
+        >
+          <h1 className="text-center text-4xl text-gray-300 font-bold">
+            Dodaj nowy produkt
+          </h1>
+        </div>
+
         <div className="w-full flex flex-col gap-2 ">
           <label
             className="text-sm cursor-pointer flex gap-4 items-center"
             htmlFor="file"
           >
-            <Image src="/upload.png" alt="" width={30} height={20} />
+            <Image src="/upload1.png" alt="" width={30} height={20} />
             <span>Prześlij zdjęcie</span>
           </label>
           <input
@@ -134,11 +158,12 @@ const AddPage = () => {
             id="file"
             className="hidden"
           />
+          {fileName && <p className="text-gray-300">{fileName}</p>}
         </div>
         <div className="w-full flex flex-col gap-2 ">
           <label className="text-sm">Tytuł</label>
           <input
-            className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
+            className="ring-1 ring-[#121c18] p-4 rounded-sm placeholder:text-[#b0b1b0] outline-none"
             type="text"
             placeholder="Bella Napoli"
             name="title"
@@ -149,7 +174,7 @@ const AddPage = () => {
           <label className="text-sm">Opis</label>
           <textarea
             rows={3}
-            className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
+            className="ring-1 ring-[#121c18] p-4 rounded-sm placeholder:text-[#b0b1b0] outline-none"
             placeholder="A timeless favorite with a twist, showcasing a thin crust topped with sweet tomatoes, fresh basil and creamy mozzarella."
             name="desc"
             onChange={handleChange}
@@ -158,7 +183,7 @@ const AddPage = () => {
         <div className="w-full flex flex-col gap-2 ">
           <label className="text-sm">Cena</label>
           <input
-            className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
+            className="ring-1 ring-[#121c18] p-4 rounded-sm placeholder:text-[#b0b1b0] outline-none"
             type="number"
             placeholder="29"
             name="price"
@@ -168,7 +193,7 @@ const AddPage = () => {
         <div className="w-full flex flex-col gap-2 ">
           <label className="text-sm">Kategoria</label>
           <select
-            className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
+            className="ring-1 ring-[#121c18] p-4 rounded-sm placeholder:text-[#b0b1b0] outline-none"
             placeholder="pizzas"
             name="catSlug"
             onChange={handleSelect}
@@ -179,13 +204,15 @@ const AddPage = () => {
           </select>
         </div>
         <button
-          className="bg-red-500 p-4 text-white w-48 rounded-md relative h-14 flex items-center justify-center"
+          className="p-4 text-white w-48 rounded-md relative h-14 flex items-center justify-center bg-green-700"
           onClick={() => setOptions((prev) => [...prev, option])}
         >
           Dodaj produkt
         </button>
       </form>
     </div>
+    </motion.form>
+    </motion.div>
   );
 };
 

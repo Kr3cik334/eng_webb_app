@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import CartIcon from "./CartIcon";
 
 const links = [
@@ -15,6 +16,7 @@ const Menu = () => {
   const [open, setOpen] = useState(false);
 
   const user = false;
+
   return (
     <div>
       <Image
@@ -25,24 +27,35 @@ const Menu = () => {
         onClick={() => setOpen(!open)}
         className="cursor-pointer"
       />
-      {open && (
-        <div className="bg-[#121c18] text-[#fff4e6] absolute left-0 top-24 w-full h-[calc(100vh-6rem)] flex flex-col gap-8 items-center justify-center text-3xl z-10">
-          {links.map((item) => (
-            <Link href={item.url} key={item.id} onClick={() => setOpen(false)}>
-              {item.title}
-            </Link>
-          ))}
-          <Link
-            href={user ? "/orders" : "login"}
-            onClick={() => setOpen(false)}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="bg-[#121c18] text-[#fff4e6] absolute left-0 top-24 w-full h-[calc(100vh-6rem)] flex flex-col gap-8 items-center justify-center text-3xl z-10"
           >
-            {user ? "Orders" : "Zaloguj się"}
-          </Link>
-          <Link href="/cart" onClick={() => setOpen(false)}>
-            <CartIcon />
-          </Link>
-        </div>
-      )}
+            {links.map((item) => (
+              <Link
+                href={item.url}
+                key={item.id}
+                onClick={() => setOpen(false)}
+              >
+                {item.title}
+              </Link>
+            ))}
+            <Link
+              href={user ? "/orders" : "login"}
+              onClick={() => setOpen(false)}
+            >
+              {user ? "Orders" : "Zaloguj się"}
+            </Link>
+            <Link href="/cart" onClick={() => setOpen(false)}>
+              <CartIcon />
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
