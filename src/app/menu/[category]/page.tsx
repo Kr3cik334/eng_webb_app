@@ -95,7 +95,7 @@ const CategoryPage = ({ params }: Props) => {
               href={`/product/${item.id}`}
               className="w-full h-full flex items-center justify-center"
             >
-              <div className="w-full h-full p-5 bg-[#121c18] rounded-md justify-center text-[#fff4e6] hover:scale-105 transition-transform duration-300">
+              <div className="w-full h-full p-5 bg-[#799B61] rounded-md justify-center text-[#fff4e6] hover:scale-105 transition-transform duration-300">
                 {/* IMAGE CONTAINER */}
                 <div className="flex flex-col items-center">
                   {item.img && (

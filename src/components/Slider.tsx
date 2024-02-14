@@ -6,18 +6,18 @@ import { motion, useAnimation } from 'framer-motion';
 const data = [
   {
     id: 1,
-    title: 'Always fresh & always crispy & always hot',
-    image: '/slide1.png',
+    title: 'Najlepsza pizza do podzialu się z przyjaciółmi',
+    image: '/slider/slide3.jpg',
   },
   {
     id: 2,
-    title: 'We deliver your order wherever you are in NY',
-    image: '/slide2.png',
+    title: 'Nasza pizza zawsze jest pyszna, swieża i chrupiąca',
+    image: '/slider/slide2.jpg',
   },
   {
     id: 3,
-    title: 'The best pizza to share with your family',
-    image: '/slide3.jpg',
+    title: 'Pizza wypiekana według klasycznej włoskiej receptury',
+    image: '/slider/slide1.jpg',
   },
 ];
 
