@@ -9,23 +9,22 @@ const Navbar = () => {
   return (
 <div className="h-14 text-[#121c18] p-4 flex items-center justify-between border-b-2 border-b-[#121c18] uppercase md:h-24 lg:px-20 xl:px-40">
       {/* LEFT LINKS */}
-      <div className="hidden md:flex gap-4 flex-1">
-        <Link href="/">Strona główna</Link>
-        <Link href="/menu">Menu</Link>
-        <Link href="/contact">Kontakt</Link>
-      </div>
+      <div className="hidden md:flex gap-4 flex-1 whitespace-nowrap">
+  <Link href="/">Strona główna</Link>
+  <Link href="/menu">Menu</Link>
+  <Link href="/contact">Kontakt</Link>
+</div>
       {/* LOGO */}
       <a href="/" className="logo-link" style={{ marginLeft: "10px" }}>
-  <Image
-    src="/logo.png"
-    alt="PizzaArt Logo"
-    className="logo-image"
-    layout="fixed"
-    width={100}
-    height={100}
-    sizes="(max-width: 768px) 40vw, 100px"
-    objectFit="contain" // This will crop the image to fit the container
-  />
+      <Image
+        src="/logo.png"
+        alt="PizzaArt Logo"
+        className="logo-image w-24 h-24 md:w-40 md:h-40"
+        layout="fixed"
+        width={200}
+        height={200}
+        objectFit="contain"
+      />
 </a>
       {/* MOBILE MENU */}
       <div className="md:hidden">

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { motion, useAnimation } from 'framer-motion';
 
 const data = [
   {
@@ -22,6 +23,7 @@ const data = [
 
 const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const controls = useAnimation();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,27 +32,36 @@ const Slider = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    controls.start({ opacity: 1 });
+  }, [controls]);
+
   return (
     <div className="flex flex-col h-screen md:h-[calc(100vh-9rem)] lg:flex-row">
       <div className="flex-1 flex items-center justify-center flex-col gap-8 font-bold text-center text-[#121c18] bg-[#fff4e6]">
-        <h1 className="text-5xl md:text-6xl xl:text-7xl">
+        <motion.h1
+          className="text-5xl md:text-6xl xl:text-7xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           {data[currentSlide].title}
-        </h1>
+        </motion.h1>
         <a
           href="/menu"
           className="bg-[#121c18] py-4 px-8 rounded-md text-white"
-          //#121c18
         >
           Zamów teraz
         </a>
       </div>
       <div className="w-full flex-1 relative">
         {data.map((slide, index) => (
-          <div
+          <motion.div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              currentSlide === index ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: currentSlide === index ? 1 : 0 }}
+            transition={{ duration: 1 }}
           >
             <Image
               src={slide.image}
@@ -58,7 +69,7 @@ const Slider = () => {
               layout="fill"
               className="object-cover"
             />
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
@@ -66,5 +77,3 @@ const Slider = () => {
 };
 
 export default Slider;
-
-// const featuredProducts:ProductType[] = await getData()

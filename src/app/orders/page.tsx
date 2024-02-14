@@ -66,7 +66,7 @@ const OrdersPage = () => {
         </thead>
         <tbody>
           {data.map((item: OrderType) => (
-            <tr className={`${item.status !== "delivered" && "bg-red-50"}`} key={item.id}>
+            <tr className={`${item.status !== "dostarczono" && "bg-red-100"}`} key={item.id}>
               <td className="hidden md:block py-6 px-1">{item.id}</td>
               <td className="py-6 px-1">
                 {item.createdAt.toString().slice(0, 10)}
@@ -83,9 +83,9 @@ const OrdersPage = () => {
                   >
                     <input
                       placeholder={item.status}
-                      className="p-2 ring-1 ring-red-100 rounded-md"
+                      className="p-2 ring-1 ring-[#769362a7] rounded-md"
                     />
-                    <button className="bg-red-400 p-2 rounded-full">
+                    <button className="bg-[#121c18] p-2 rounded-full">
                       <Image src="/edit.png" alt="" width={20} height={20} />
                     </button>
                   </form>

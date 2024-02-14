@@ -2871,13 +2871,18 @@ react-display-name@^0.2.4:
   resolved "https://registry.npmjs.org/react-display-name/-/react-display-name-0.2.5.tgz"
   integrity sha512-I+vcaK9t4+kypiSgaiVWAipqHRXYmZIuAiS8vzFvXHHXVigg/sMKwlRgLy6LH2i3rmP+0Vzfl5lFsFRwF1r3pg==
 
-"react-dom@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.8 || ^17 || ^18", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^17.0.2 || ^18", react-dom@^18.0.0, react-dom@^18.2.0, react-dom@^18.x, "react-dom@>= 15", react-dom@>=16, react-dom@18.2.0:
+"react-dom@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.8 || ^17 || ^18", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.8.0 || ^17.0.2 || ^18.2.0", "react-dom@^17.0.2 || ^18", react-dom@^18.0.0, react-dom@^18.2.0, react-dom@^18.x, "react-dom@>= 15", react-dom@>=16, react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
+
+react-intersection-observer@^9.3.5, react-intersection-observer@^9.8.0:
+  version "9.8.0"
+  resolved "https://registry.npmjs.org/react-intersection-observer/-/react-intersection-observer-9.8.0.tgz"
+  integrity sha512-wXHvMQUsTagh3X0Z6jDtGkIXc3VVCd2tjDRYR9kII3GKrZr0XF0xtpfdamo2n8BSF+zzfeeBVOTjxZWpBp9X0g==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
@@ -2906,6 +2911,13 @@ react-jss@^10.9.2:
     theming "^3.3.0"
     tiny-warning "^1.0.2"
 
+react-scrollama@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.npmjs.org/react-scrollama/-/react-scrollama-2.3.3.tgz"
+  integrity sha512-sFf6vaH3dXQ4Rko2fb7AcHDeVpSBPF0oxUnkvgL3jBVmKXiKk09kWbdvQ9ixlhZ28Y4BY+2N4p2AgLvEr1ab1g==
+  dependencies:
+    react-intersection-observer "^9.3.5"
+
 react-slick@^0.30.1:
   version "0.30.1"
   resolved "https://registry.npmjs.org/react-slick/-/react-slick-0.30.1.tgz"
@@ -2925,7 +2937,7 @@ react-toastify@^9.1.3:
   dependencies:
     clsx "^1.1.1"
 
-"react@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17 || ^18", "react@^17.0.2 || ^18", "react@^17.0.2 || ^18.0.0", react@^18.0.0, react@^18.2.0, react@^18.x, "react@>= 15", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16, react@>=16.3, react@>=16.8, react@>=16.8.6, react@18.2.0:
+"react@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.2 || ^18.2.0", "react@^17 || ^18", "react@^17.0.2 || ^18", "react@^17.0.2 || ^18.0.0", react@^18.0.0, react@^18.2.0, react@^18.x, "react@>= 15", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16, react@>=16.3, react@>=16.8, react@>=16.8.6, react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==

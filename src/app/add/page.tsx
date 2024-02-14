@@ -27,7 +27,7 @@ const AddPage = () => {
   });
 
   const [option, setOption] = useState<Option>({
-    title: "",
+    title: "Standard",
     additionalPrice: 0,
   });
 
@@ -51,6 +51,18 @@ const AddPage = () => {
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
+
+  const handleSelect = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setInputs((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+
   const changeOption = (e: React.ChangeEvent<HTMLInputElement>) => {
     setOption((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
@@ -68,11 +80,14 @@ const AddPage = () => {
     data.append("file", file!);
     data.append("upload_preset", "engineer");
     data.append("api_key", "559915551345217");
-    const res = await fetch("https://api.cloudinary.com/v1_1/pizzaart/image/upload", {
-      method: "POST",
-      body: data,
-    });
-  
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/pizzaart/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
     const resData = await res.json();
     return resData.url;
   };
@@ -103,7 +118,7 @@ const AddPage = () => {
     <div className="p-4 lg:px-20 xl:px-40 h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] flex items-center justify-center text-red-500">
       <form onSubmit={handleSubmit} className="flex flex-wrap gap-6">
         <h1 className="text-4xl mb-2 text-gray-300 font-bold">
-          Add New Product
+          Dodaj nowy produkt
         </h1>
         <div className="w-full flex flex-col gap-2 ">
           <label
@@ -111,7 +126,7 @@ const AddPage = () => {
             htmlFor="file"
           >
             <Image src="/upload.png" alt="" width={30} height={20} />
-            <span>Upload Image</span>
+            <span>Prześlij zdjęcie</span>
           </label>
           <input
             type="file"
@@ -121,7 +136,7 @@ const AddPage = () => {
           />
         </div>
         <div className="w-full flex flex-col gap-2 ">
-          <label className="text-sm">Title</label>
+          <label className="text-sm">Tytuł</label>
           <input
             className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
             type="text"
@@ -131,7 +146,7 @@ const AddPage = () => {
           />
         </div>
         <div className="w-full flex flex-col gap-2">
-          <label className="text-sm">Description</label>
+          <label className="text-sm">Opis</label>
           <textarea
             rows={3}
             className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
@@ -141,7 +156,7 @@ const AddPage = () => {
           />
         </div>
         <div className="w-full flex flex-col gap-2 ">
-          <label className="text-sm">Price</label>
+          <label className="text-sm">Cena</label>
           <input
             className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
             type="number"
@@ -151,61 +166,23 @@ const AddPage = () => {
           />
         </div>
         <div className="w-full flex flex-col gap-2 ">
-          <label className="text-sm">Category</label>
-          <input
+          <label className="text-sm">Kategoria</label>
+          <select
             className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
-            type="text"
             placeholder="pizzas"
             name="catSlug"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="w-full flex flex-col gap-2">
-          <label className="text-sm">Options</label>
-          <div className="flex">
-            <input
-              className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
-              type="text"
-              placeholder="Title"
-              name="title"
-              onChange={changeOption}
-            />
-            <input
-              className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
-              type="number"
-              placeholder="Additional Price"
-              name="additionalPrice"
-              onChange={changeOption}
-            />
-            <button
-              className="bg-gray-500 p-2 text-white"
-              onClick={() => setOptions((prev) => [...prev, option])}
-            >
-              Add Option
-            </button>
-          </div>
-          <div className="flex flex-wrap gap-4 mt-2">
-            {options.map((opt) => (
-              <div
-                key={opt.title}
-                className="p-2  rounded-md cursor-pointer bg-gray-200 text-gray-400"
-                onClick={() =>
-                  setOptions((prev) =>
-                    prev.filter((item) => item.title !== opt.title)
-                  )
-                }
-              >
-                <span>{opt.title}</span>
-                <span className="text-xs"> (+ ${opt.additionalPrice})</span>
-              </div>
-            ))}
-          </div>
+            onChange={handleSelect}
+          >
+            <option value="speciale">Speciale</option>
+            <option value="rosse">Rosse</option>
+            <option value="bianche">Bianche</option>
+          </select>
         </div>
         <button
-          type="submit"
           className="bg-red-500 p-4 text-white w-48 rounded-md relative h-14 flex items-center justify-center"
+          onClick={() => setOptions((prev) => [...prev, option])}
         >
-          Submit
+          Dodaj produkt
         </button>
       </form>
     </div>
@@ -213,6 +190,3 @@ const AddPage = () => {
 };
 
 export default AddPage;
-
-
-

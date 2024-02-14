@@ -26,8 +26,8 @@ const LoginPage = () => {
         </div>
         {/* FORM CONTAINER */}
         <div className="p-10 flex flex-col gap-8 md:w-1/2">
-          <h1 className="font-bold text-xl xl:text-3xl">Welcome</h1>
-          <p>Log into your account or create a new one using social buttons</p>
+          <h1 className="font-bold text-xl xl:text-3xl">Wpadnij do nas</h1>
+          <p>Zaloguj się używając przycisków poniżej</p>
           <button
             className="flex gap-4 p-4 ring-1 ring-orange-100 rounded-md"
             onClick={() => signIn("google")}
@@ -39,23 +39,13 @@ const LoginPage = () => {
               height={20}
               className="object-contain"
             />
-            <span>Sign in with Google</span>
-          </button>
-          <button className="flex gap-4 p-4 ring-1 ring-blue-100 rounded-md">
-            <Image
-              src="/facebook.png"
-              alt=""
-              width={20}
-              height={20}
-              className="object-contain"
-            />
-            <span>Sign in with Facebook</span>
+            <span>Zaloguj się przez Google</span>
           </button>
           <p className="text-sm">
-            Have a problem?
-            <Link className="underline" href="/">
+            Masz problem?
+            <Link className="underline" href="mailto:pizzaart2137@gmail.com">
               {" "}
-              Contact us
+              Skontaktuj się z nami
             </Link>
           </p>
         </div>
