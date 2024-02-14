@@ -6,6 +6,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Gallery from "@/components/Gallery";
 
 const getData = async () => {
   const res = await fetch("http://localhost:3000/api/categories", {
@@ -65,7 +66,7 @@ const MenuPage = () => {
     <Link
       key={category.id}
       href={`/menu/${category.slug}`}
-      className="w-full h-full p-5 bg-[#121c18] rounded-md justify-center text-[#fff4e6] hover:scale-105 transition-transform duration-300"
+      className="w-full h-full p-5 bg-[#799B61] rounded-md justify-center text-[#fff4e6] hover:scale-105 transition-transform duration-300"
     >
       <div className="flex flex-col items-center">
         <h1>
@@ -88,6 +89,7 @@ const MenuPage = () => {
 </div>
 
       </motion.div>
+      <Gallery/>
     </div>
   );
 };

@@ -3,6 +3,7 @@
 import React from 'react';
 import 'tailwindcss/tailwind.css'; // Import the Tailwind CSS file
 import { motion } from 'framer-motion';
+import Gallery from '@/components/Gallery';
 
 const ContactPage: React.FC = () => {
   return (
@@ -33,8 +34,7 @@ const ContactPage: React.FC = () => {
           ></iframe>
         </div>
       </div>
-      <div className="h-[70vw] flex flex-col md:flex-row md:justify-between bg-[url('/pizza_table.jpg')] md:h-[70vh] bg-cover bg-center text-center">
-      </div>
+      <Gallery />
     </motion.div>
   );
 };

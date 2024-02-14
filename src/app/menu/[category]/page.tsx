@@ -6,6 +6,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Gallery from "@/components/Gallery";
 
 const getData = async (category: string) => {
   const res = await fetch(
@@ -121,6 +122,7 @@ const CategoryPage = ({ params }: Props) => {
         ))}
       </div>
       </motion.div>
+      <Gallery/>
     </div>
   );
 };
