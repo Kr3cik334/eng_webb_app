@@ -10,6 +10,7 @@ const links = [
   { id: 1, title: "Strona główna", url: "/" },
   { id: 2, title: "Menu", url: "/menu" },
   { id: 3, title: "Kontakt", url: "/contact" },
+  { id: 3, title: "Zamówienia", url: "/orders" },
 ];
 
 const Menu = () => {

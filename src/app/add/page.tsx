@@ -175,7 +175,7 @@ const AddPage = () => {
           <textarea
             rows={3}
             className="ring-1 ring-[#121c18] p-4 rounded-sm placeholder:text-[#b0b1b0] outline-none"
-            placeholder="A timeless favorite with a twist, showcasing a thin crust topped with sweet tomatoes, fresh basil and creamy mozzarella."
+            placeholder="szyneczka i pieczarki"
             name="desc"
             onChange={handleChange}
           />
