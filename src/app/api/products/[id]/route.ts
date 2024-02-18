@@ -42,7 +42,7 @@ export const DELETE = async (
         },
       });
 
-      return new NextResponse(JSON.stringify("Product has been deleted!"), {
+      return new NextResponse(JSON.stringify("Produkt został usunięty!"), {
         status: 200,
       });
     } catch (err) {

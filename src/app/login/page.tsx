@@ -34,7 +34,7 @@ const LoginPage = () => {
       >
         {/* IMAGE CONTAINER */}
         <div className="relative h-1/3 w-full md:h-full md:w-1/2">
-          <Image src="/loginBg.png" alt="" fill className="object-cover" />
+          <Image src="/welcome.jpeg" alt="" fill className="object-cover" />
         </div>
         {/* FORM CONTAINER */}
         <motion.div

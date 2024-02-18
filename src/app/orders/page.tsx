@@ -52,7 +52,7 @@ const OrdersPage = () => {
     const status = input.value;
 
     mutation.mutate({ id, status });
-    toast.success("The order status has been changed!");
+    toast.success("Zmiana statusu zamówienia!");
   };
 
   if (isLoading || status === "loading") return "Loading...";
