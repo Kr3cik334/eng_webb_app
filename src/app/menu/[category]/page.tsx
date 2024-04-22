@@ -92,6 +92,7 @@ const CategoryPage = ({ params }: Props) => {
         {products.map((item) => (
           
             <Link
+            key={item.id}
               href={`/product/${item.id}`}
               className="w-full h-full flex items-center justify-center"
             >
